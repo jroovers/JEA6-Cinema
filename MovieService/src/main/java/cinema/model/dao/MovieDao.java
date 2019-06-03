@@ -4,6 +4,7 @@ import cinema.model.domain.Movie;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -21,9 +22,13 @@ public class MovieDao {
     }
 
     public Movie findById(Long Id) {
-        return em.createNamedQuery("movie.getMovieById", Movie.class)
-                .setParameter("id", Id)
-                .getSingleResult();
+        try {
+            return em.createNamedQuery("movie.getMovieById", Movie.class)
+                    .setParameter("id", Id)
+                    .getSingleResult();
+        } catch (NoResultException ex) {
+            return null;
+        }
     }
 
     public List<Movie> findAll() {

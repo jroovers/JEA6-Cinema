@@ -56,7 +56,7 @@ public class MoviesResource {
     }
 
     /**
-     * Get a single movies
+     * Get a single movie
      *
      * @param id
      * @return
@@ -74,14 +74,5 @@ public class MoviesResource {
                     .status(404)
                     .build();
         }
-    }
-
-    /**
-     * PUT method for updating or creating an instance of MoviesResource
-     *
-     * @param content representation for the resource
-     */
-    @PUT
-    public void putJson(Movie content) {
     }
 }

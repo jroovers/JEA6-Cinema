@@ -11,6 +11,7 @@ import cinema.service.MovieService;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 
 @Stateless
 public class MovieServiceImpl implements MovieService {
@@ -25,7 +26,11 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Movie getMovieById(Long id) {
-        return dao.findById(id);
+        try {
+            return dao.findById(id);
+        } catch (NoResultException ex) {
+            return null;
+        }
     }
 
 }

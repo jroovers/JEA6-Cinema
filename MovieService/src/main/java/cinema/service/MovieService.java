@@ -25,7 +25,7 @@ public interface MovieService {
      * Get a movie by its unique ID
      *
      * @param id
-     * @return
+     * @return movie, or null if not found
      */
     public Movie getMovieById(Long id);
 
