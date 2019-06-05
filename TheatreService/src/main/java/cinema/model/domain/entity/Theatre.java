@@ -5,7 +5,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,14 +19,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Room implements Serializable {
-
-    @ManyToOne
-    private Theatre theatre;
+public class Theatre implements Serializable {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
-    private List<Integer> seats;
+    private String location;
+    @OneToMany(mappedBy = "theatre")
+    private List<Room> availableRooms;
+    @OneToMany(mappedBy = "theatre")
+    private List<Show> schedule;
+
 }

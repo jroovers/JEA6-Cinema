@@ -29,7 +29,7 @@ public class RootResource {
         String actualURL = context.getAbsolutePathBuilder().build().toASCIIString();
         JsonObject reply;
         reply = Json.createObjectBuilder()
-                .add("movies_url", actualURL + "/movies")
+                .add("theatres_url", actualURL + "/theatres")
                 .add("movie_url", actualURL + "/movies/{id}")
                 .build();
         return Response.ok(reply).build();
