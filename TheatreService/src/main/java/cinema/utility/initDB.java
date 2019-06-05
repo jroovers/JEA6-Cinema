@@ -88,7 +88,7 @@ public class initDB {
             Show show1 = new Show();
             show1.setTheatre(parent);
             show1.setRoom(r);
-            GregorianCalendar time1 = new GregorianCalendar(2019, 6, 6, 19, 45, 00);
+            GregorianCalendar time1 = new GregorianCalendar(2019, 5, 15, 19, 45, 00);
             show1.setScheduledTime(ZonedDateTime.ofInstant(time1.toInstant(), ZoneId.of("GMT")));
             show1.setMovie(movies.get(i));
             sdao.create(show1);
@@ -96,7 +96,7 @@ public class initDB {
             Show show2 = new Show();
             show2.setTheatre(parent);
             show2.setRoom(r);
-            GregorianCalendar time2 = new GregorianCalendar(2019, 6, 6, 21, 30, 00);
+            GregorianCalendar time2 = new GregorianCalendar(2019,5, 15, 21, 30, 00);
             show2.setScheduledTime(ZonedDateTime.ofInstant(time2.toInstant(), ZoneId.of("GMT")));
             show2.setMovie(movies.get(i));
             sdao.create(show2);
