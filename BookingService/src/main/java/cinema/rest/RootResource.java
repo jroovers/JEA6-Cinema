@@ -26,11 +26,11 @@ public class RootResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getDescription() {
-        String actualURL = context.getAbsolutePathBuilder().build().toASCIIString();
+        String actualURL = context.getBaseUriBuilder().build().toASCIIString();
         JsonObject reply;
         reply = Json.createObjectBuilder()
-                .add("movies_url", actualURL + "/movies")
-                .add("movie_url", actualURL + "/movies/{id}")
+                .add("bookings_url", actualURL + "bookings")
+                .add("booking_url", actualURL + "bookings/{id}")
                 .build();
         return Response.ok(reply).build();
     }
