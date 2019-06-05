@@ -1,5 +1,9 @@
 package cinema.rest;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.Consumes;
@@ -26,9 +30,16 @@ public class RootResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getDescription() {
+        String hostname;
+        try {
+            hostname = InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException ex) {
+            hostname = "could not resolve";
+        }
         String actualURL = context.getBaseUriBuilder().build().toASCIIString();
         JsonObject reply;
         reply = Json.createObjectBuilder()
+                .add("hostname", hostname)
                 .add("bookings_url", actualURL + "bookings")
                 .add("booking_url", actualURL + "bookings/{id}")
                 .build();
