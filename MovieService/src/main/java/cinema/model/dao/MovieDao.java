@@ -1,6 +1,6 @@
 package cinema.model.dao;
 
-import cinema.model.domain.Movie;
+import cinema.model.domain.entity.Movie;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

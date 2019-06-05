@@ -5,7 +5,7 @@
  */
 package cinema.service;
 
-import cinema.model.domain.Movie;
+import cinema.model.domain.entity.Movie;
 import java.util.List;
 
 /**

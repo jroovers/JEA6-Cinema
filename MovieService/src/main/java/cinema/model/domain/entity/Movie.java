@@ -1,4 +1,4 @@
-package cinema.model.domain;
+package cinema.model.domain.entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;

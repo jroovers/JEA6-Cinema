@@ -1,7 +1,7 @@
 package cinema.utility;
 
 import cinema.model.dao.MovieDao;
-import cinema.model.domain.Movie;
+import cinema.model.domain.entity.Movie;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;

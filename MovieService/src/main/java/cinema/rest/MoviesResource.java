@@ -5,7 +5,7 @@
  */
 package cinema.rest;
 
-import cinema.model.domain.Movie;
+import cinema.model.domain.entity.Movie;
 import cinema.service.MovieService;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

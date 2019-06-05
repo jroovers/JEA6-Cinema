@@ -6,7 +6,7 @@
 package cinema.service.impl;
 
 import cinema.model.dao.MovieDao;
-import cinema.model.domain.Movie;
+import cinema.model.domain.entity.Movie;
 import cinema.service.MovieService;
 import java.util.List;
 import javax.ejb.Stateless;
