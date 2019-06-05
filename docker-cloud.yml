@@ -1,0 +1,40 @@
+version: '3'
+services:
+  bookingservice:
+    image: cinema/bookingservice:latest
+    deploy:
+      replicas: 2
+    depends_on: 
+      - theatreservice
+    ports:
+     - "8081:8080"
+    networks:
+    - webnet
+  movieservice:
+    image: cinema/movieservice:latest
+    deploy:
+      replicas: 2
+    ports:
+     - "8082:8080"
+    networks:
+    - webnet
+  theatreservice:
+    image: cinema/theatreservice:latest
+    deploy:
+      replicas: 1
+    depends_on: 
+      - movieservice
+    ports:
+     - "8083:8080"
+    networks:
+    - webnet
+  frontend:
+    image: cinema/frontend:latest
+    deploy:
+      replicas: 1
+    ports:
+     - "80:80"
+    networks:
+    - webnet
+networks:
+  webnet:
