@@ -1,6 +1,5 @@
 package cinema.service;
 
-import cinema.model.domain.dto.Movie;
 import cinema.model.domain.entity.Theatre;
 import java.util.List;
 
@@ -13,7 +12,5 @@ public interface TheatreService {
     public Theatre getTheatre(Long id);
 
     public List<Theatre> getAllTheatres();
-
-    public List<Movie> getAllAvailableMovies();
 
 }

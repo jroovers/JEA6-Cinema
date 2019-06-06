@@ -82,8 +82,9 @@ public class initDB {
 
     private void createSchedule() {
         Theatre parent = tdao.findAll().get(0);
-        List<Movie> movies = movieServiceConnector.getAllMovies();
+        List<Movie> movies = new CommandGetMovies().execute();
         int i = 0;
+        System.out.println(movies);
         for (Room r : rdao.findAll()) {
             Show show1 = new Show();
             show1.setTheatre(parent);
@@ -96,7 +97,7 @@ public class initDB {
             Show show2 = new Show();
             show2.setTheatre(parent);
             show2.setRoom(r);
-            GregorianCalendar time2 = new GregorianCalendar(2019,5, 15, 21, 30, 00);
+            GregorianCalendar time2 = new GregorianCalendar(2019, 5, 15, 21, 30, 00);
             show2.setScheduledTime(ZonedDateTime.ofInstant(time2.toInstant(), ZoneId.of("GMT")));
             show2.setMovie(movies.get(i));
             sdao.create(show2);
