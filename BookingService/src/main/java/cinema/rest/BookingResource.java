@@ -5,12 +5,14 @@
  */
 package cinema.rest;
 
+import cinema.model.domain.dto.BookingRequest;
 import cinema.model.domain.entity.Booking;
 import cinema.service.BookingService;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -44,6 +46,13 @@ public class BookingResource {
         } else {
             return Response.status(404).build();
         }
+    }
+
+    @POST
+    public Response createNewBooking(Booking body) {
+        System.out.println(body.toString());
+        service.createBooking(body);
+        return Response.ok().build();
     }
 
 }

@@ -8,6 +8,7 @@ package cinema.service.impl;
 import cinema.model.dao.BookingDao;
 import cinema.model.domain.entity.Booking;
 import cinema.service.BookingService;
+import cinema.utility.theatreServiceConnector;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -26,5 +27,11 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public List<Booking> getAllBookings() {
         return dao.findAll();
+    }
+
+    @Override
+    public void createBooking(Booking booking) {
+        theatreServiceConnector.informTheatre(booking);
+        dao.create(booking);
     }
 }

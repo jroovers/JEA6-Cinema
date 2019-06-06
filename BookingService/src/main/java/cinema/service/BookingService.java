@@ -13,4 +13,6 @@ public interface BookingService {
 
     public List<Booking> getAllBookings();
 
+    public void createBooking(Booking booking);
+
 }
