@@ -1,0 +1,47 @@
+<div class="row" *ngIf="session.getShow()">
+  <div class="col-4">
+    <a href="home">
+      <-- Ga terug</a> <p>Details van keuze:</p>
+        <ul class="list-group">
+          <li class="list-group-item"><i>Voorstelling #{{session.getShow().id}}</i></li>
+          <li class="list-group-item">Film: <b>{{session.getShow().movie.title}}
+              ({{session.getShow().movie.playtime}}min)</b></li>
+          <li class="list-group-item">Locatie: <b>{{session.getShow().theatre.location}} -
+              {{session.getShow().room.name}}</b></li>
+          <li class="list-group-item">Vrije stoelen: <b>{{session.getShow().room.seats.length}}</b></li>
+          <li class="list-group-item">Begintijd: <b>{{session.getShow().scheduledTime | date: "HH:mm 'op' dd-MM"}}</b>
+          </li>
+        </ul>
+  </div>
+  <div class="col-8">
+    <h3>Beschikbare stoelen:</h3>
+    <div class="list-group">
+      <a [routerLink]="" class="list-group-item list-group-item-action"
+        *ngFor="let seat of session.getShow().room.seats" (click)="toggleSeat(seat)"
+        [class.active]="selectedSeats.includes(seat)">
+        Stoel {{seat}}
+      </a>
+      <div class="list-group-item "
+        *ngIf="session.getShow().room.seats < 1">
+        Helaas, uitverkocht!
+    </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="selectedSeats.length > 0">
+  <div class="col-12">
+    <div class="alert alert-primary" role="alert">
+      Je gekozen stoelen reserveren: <br>
+      <button type="button form" (click)="confirmBooking()" class="btn btn-primary mr-2">Bevestigen</button>
+      <button type="button" class="btn btn-light" (click)="clearSeats()">Keuze wissen</button>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="!session.getShow()">
+  <div class="col-12 text-center">
+    <p>
+      Het lijkt erop dat je geen voorstelling hebt gekozen. Er is hier dus niet zoveel te doen.
+    </p>
+    <a href="home">Ga terug</a>
+  </div>
+</div>

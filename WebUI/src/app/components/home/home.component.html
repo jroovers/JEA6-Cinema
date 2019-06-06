@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-4">
+    <h3>Kies een bioscoop waar je tickets wil bestellen: </h3>
+    <ul>
+      <li *ngFor="let theatre of theatres">
+        <h2><a [routerLink]="" (click)="theatreSelected(theatre)">{{theatre.location}}</a></h2>
+      </li>
+      <li *ngIf="theatres.length < 1">
+        <h2>Wobble wobble. Geen bioscopen gevonden. Is het DEMO tijd?</h2>
+      </li>
+    </ul>
+  </div>
+  <div class="col-8">
+    <ul>
+      <li *ngFor="let show of shows">
+        <h6><a [routerLink]="" (click)="showSelected(show)">{{show.scheduledTime | date: "dd-MM 'om' HH:mm"}} -
+            {{show.movie.title}}</a></h6>
+      </li>
+      <li *ngIf="!selectedTheatre">
+        <h3>Kies eerst een locatie.</h3>
+      </li>
+      <li *ngIf="selectedTheatre && shows.length < 1">
+        <h3>Oh oh... Geen voorstellingen gevonden, zeker bezig met de demo? xd</h3>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row" *ngIf="session.getShow()">
+  <div class="col-12">
+    <div class="alert alert-primary" role="alert">
+      Je huidige keuze: <br>
+      <h4>{{session.getShow().movie.title}}</h4>
+      <button type="button form" (click)="confirmBooking()" class="btn btn-primary mr-2">Stoelen reserveren</button>
+      <button type="button" class="btn btn-light" (click)="clearShow()">Keuze wissen</button>
+    </div>
+  </div>
+</div>
