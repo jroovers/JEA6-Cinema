@@ -34,4 +34,8 @@ public class ShowDao {
         cq.select(cq.from(Show.class));
         return em.createQuery(cq).getResultList();
     }
+
+    public Show update(Show show) {
+        return this.em.merge(show);
+    }
 }
