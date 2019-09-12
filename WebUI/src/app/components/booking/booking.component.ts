@@ -49,6 +49,9 @@ export class BookingComponent implements OnInit {
   confirmBooking() {
     console.log("confirm picked seats");
     this.bookingService.sendBooking(this.session.getShow(), this.selectedSeats)
-      .subscribe(result => console.log(result));
+      .subscribe(result => {
+        console.log(result)
+        this.router.navigate(['/home']);
+      });
   }
 }

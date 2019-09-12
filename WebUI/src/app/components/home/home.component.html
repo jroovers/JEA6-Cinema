@@ -6,7 +6,7 @@
         <h2><a [routerLink]="" (click)="theatreSelected(theatre)">{{theatre.location}}</a></h2>
       </li>
       <li *ngIf="theatres.length < 1">
-        <h2>Wobble wobble. Geen bioscopen gevonden. Is het DEMO tijd?</h2>
+        <h2>Geen bioscopen gevonden.</h2>
       </li>
     </ul>
   </div>
@@ -20,7 +20,7 @@
         <h3>Kies eerst een locatie.</h3>
       </li>
       <li *ngIf="selectedTheatre && shows.length < 1">
-        <h3>Oh oh... Geen voorstellingen gevonden, zeker bezig met de demo? xd</h3>
+        <h3>Geen voorstellingen gevonden.</h3>
       </li>
     </ul>
   </div>

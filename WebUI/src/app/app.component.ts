@@ -10,5 +10,5 @@ import { Show } from './models/show';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = "Smeuige, smeerbare vleessoort"
+  title = "Pastei!"
 }
